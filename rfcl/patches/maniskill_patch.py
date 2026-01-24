@@ -10,9 +10,8 @@ from mani_skill.utils.structs.types import Device
 _old_flatten = common.flatten_state_dict
 
 def patched_flatten_state_dict(state_dict, use_torch=False, device: Optional[Device] = None):
-    use_torch = isinstance(state_dict, np.ndarray)
-    flat = _old_flatten(state_dict, use_torch=use_torch, device=device)
-    if use_torch and isinstance(flat, torch.Tensor):
+    flat = _old_flatten(state_dict, use_torch=True, device=device)
+    if isinstance(flat, torch.Tensor):
         flat = flat.cpu().detach().numpy()
     return flat
 
