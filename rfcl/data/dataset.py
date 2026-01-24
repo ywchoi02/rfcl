@@ -145,7 +145,8 @@ class ReplayDataset:
             actions = np.array(demo["actions"])
 
             if reward_mode == "sparse":
-                rewards = np.array(demo["success"]).astype(np.float_)
+                # rewards = np.array(demo["success"]).astype(np.float_)
+                rewards = np.array(demo["success"]).astype(np.float64)
             elif reward_mode == "negative_sparse":
                 rewards = rewards - 1
             else:
