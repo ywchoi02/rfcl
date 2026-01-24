@@ -3,6 +3,7 @@ Code to run Reverse Forward Curriculum Learning.
 Configs can be a bit complicated, we recommend directly looking at configs/ms2/base_sac_ms2_sample_efficient.yml for what options are available.
 Alternatively, go to the file defining each of the nested configurations and see the comments.
 """
+import rfcl.patches.maniskill_patch  # (ywchoi): monkey patch
 import copy
 import os
 import os.path as osp
@@ -27,7 +28,6 @@ from rfcl.logger import LoggerConfig
 from rfcl.models import NetworkConfig, build_network_from_cfg
 from rfcl.utils.parse import parse_cfg
 from rfcl.utils.spaces import get_action_dim
-import rfcl.patches.maniskill_patch  # (ywchoi): monkey patch
 
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
