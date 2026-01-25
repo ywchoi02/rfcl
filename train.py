@@ -238,6 +238,15 @@ def main(cfg: SACExperiment):
         cfg=cfg.sac,
     )
 
+    if logger.wandb:
+        import wandb as wb
+
+        logger.wandb_run.log(data={"eval/success_once": 0}, step=0)
+        logger.wandb_run.log(data={"eval/success_at_end": 0}, step=0)
+        logger.wandb_run.log(data={"eval/reward": 0}, step=0)
+        logger.wandb_run.log(data={"eval/return": 0}, step=0)
+        logger.wandb_run.log(data={"eval/episode_len": eval_env_cfg.max_episode_steps}, step=0)
+
     ###########################################
     # Stage 1 Training: Reverse Curriculum RL #
     ###########################################
