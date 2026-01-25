@@ -238,7 +238,7 @@ def main(cfg: SACExperiment):
         cfg=cfg.sac,
     )
 
-    if logger.wandb:
+    if cfg.logger.wandb:
         import wandb
         
         wandb.log(
