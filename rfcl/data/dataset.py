@@ -32,9 +32,9 @@ def get_states_dataset(demo_dataset_path, skip_failed=True, num_demos: int = -1,
         reset_kwargs = episode["reset_kwargs"]
 
         # this is specifically for adroit envs that use options
-        if "options" in reset_kwargs and "initial_state_dict" in reset_kwargs["options"]:
-            for k in reset_kwargs["options"]["initial_state_dict"]:
-                reset_kwargs["options"]["initial_state_dict"][k] = np.array(reset_kwargs["options"]["initial_state_dict"][k])
+        # if "options" in reset_kwargs and "initial_state_dict" in reset_kwargs["options"]:
+        #     for k in reset_kwargs["options"]["initial_state_dict"]:
+        #         reset_kwargs["options"]["initial_state_dict"][k] = np.array(reset_kwargs["options"]["initial_state_dict"][k])
 
         # handle both dict like env states and vector env states
         # NOTE (stao): ms3 dataset is formatted slightly differently, handled here
